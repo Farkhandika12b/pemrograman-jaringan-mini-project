@@ -1,4 +1,3 @@
-
 package com.mycompany.uts_pakvipkas;
 
 import javax.swing.*;
@@ -8,29 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-class Book implements Serializable {
-    private String title;
-    private String author;
-
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    @Override
-    public String toString() {
-        return "Title: " + title + ", Author: " + author;
-    }
-}
 
 public class AplikasiPerpustakaan extends JFrame {
     private static final String FILENAME = "library.txt";
@@ -99,7 +75,6 @@ public class AplikasiPerpustakaan extends JFrame {
         add(panel);
     }
 
-    @SuppressWarnings("unchecked")
     private void loadBooks() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILENAME))) {
             books = (List<Book>) ois.readObject();
